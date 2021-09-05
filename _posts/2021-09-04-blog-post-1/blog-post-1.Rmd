@@ -1,0 +1,38 @@
+---
+title: "Blog Post 1"
+description: |
+  A short description of the post.
+author:
+  - name: Nora Jones
+    url: https://example.com/norajones
+date: 09-04-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+```
+
+# Introdction
+I know I've reached a low point in my life when I'm listening to a Lowfi playlist that exclusively samples Bojack Horseman quotes. If that doesnt say I'm dead inside but I have work to do I'm not sure what does. Suffering a complete ego death unfortunately does not mean I'm free of responsibility, so here I am, sitting outside in the sun before it starts to rain and writing some post about covid data or something. Whatever.
+
+# Data Description
+```{r}
+#install coronavirus package dataset
+devtools::install_github("RamiKrispin/coronavirus")
+library(coronavirus)
+help(package="coronavirus")
+
+ecuador_corona <- coronavirus %>%
+  filter(country=="Ecuador")
+
+
+#install tidycovid19 package
+#devtools::install_github("joachim-gassen/tidycovid19")
+
+
+```
+
+

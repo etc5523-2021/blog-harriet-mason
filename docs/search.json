@@ -6,14 +6,14 @@
       "description": "Some additional details about the blog",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-08-29T20:38:49+10:00"
+      "last_modified": "2021-09-04T13:30:50+10:00"
     },
     {
       "path": "index.html",
-      "title": "Covidblog",
+      "title": "very cool blog for communicating with data",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-08-29T20:38:50+10:00"
+      "last_modified": "2021-09-04T13:30:51+10:00"
     }
   ],
   "collections": ["posts/posts.json"]

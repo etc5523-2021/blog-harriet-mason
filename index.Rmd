@@ -1,5 +1,5 @@
 ---
-title: "Covidblog"
+title: "very cool blog for communicating with data"
 site: distill::distill_website
 listing: posts
 ---
