@@ -19,16 +19,64 @@ library(tidyverse)
 I know I've reached a low point in my life when I'm listening to a Lowfi playlist that exclusively samples Bojack Horseman quotes. If that doesnt say I'm dead inside but I have work to do I'm not sure what does. Suffering a complete ego death unfortunately does not mean I'm free of responsibility, so here I am, sitting outside in the sun before it starts to rain and writing some post about covid data or something. Whatever.
 
 # Data Description
-```{r}
+
+## John Hopkins Data
+Variables
+- date
+- province: province/state (it is NA for every observaiton in this dataset)
+- country: country of intrest, all Ecuador
+- lat: latitude of centre of geographic region (all the same)
+- long: latitude of centre of geographic region (all the same)
+- type: type of cases out of confirmed, death, and recovered.
+- Cases: number of those types of cases
+
+Data Issues
+- about -448000 cases in august of this year (recovered)
+- there are a lot of negative cases in all the categories for some reason, making a cumulative variable to see if that changes
+
+```{r, John Hopkins}
 #install coronavirus package dataset
-devtools::install_github("RamiKrispin/coronavirus")
+#devtools::install_github("RamiKrispin/coronavirus")
 library(coronavirus)
 help(package="coronavirus")
 
-ecuador_corona <- coronavirus %>%
-  filter(country=="Ecuador")
+#make long dataset for plotting
+ecuador_corona_new <- coronavirus %>%
+  filter(country=="Ecuador") %>%
+  select(-c(province, country, lat, long))
+
+#plot
+ggplot(ecuador_corona_new, aes(x=date, y=cases, colour=type)) + geom_line()
+
+#make wide dataset to understand values
+ecuador_corona_cum <- ecuador_corona_new %>%
+  pivot_wider(names_from = type, values_from=cases) %>%
+  mutate(cum_cases = cumsum(confirmed),
+         cum_deaths = cumsum(death),
+         cum_recovered = cumsum(recovered)) %>%
+  select(-c(confirmed, death, recovered)) %>%
+  pivot_longer(cols=cum_cases:cum_recovered, names_to="type", values_to = "cases")
+
+#plot
+ggplot(ecuador_corona_cum, aes(x=date, y=cases, colour=type)) + geom_line()
+
+#cases-recovered vs death
+ecuador_corona_gap <- ecuador_corona_new %>%
+  pivot_wider(names_from = type, values_from=cases) %>%
+  mutate(cum_cases = cumsum(confirmed),
+         cum_deaths = cumsum(death),
+         cum_recovered = cumsum(recovered)) %>%
+  mutate(case_min_rec = cum_cases-cum_recovered) %>%
+  select(-c(confirmed, death, recovered, cum_cases, cum_recovered)) %>%
+  pivot_longer(cols=cum_deaths:case_min_rec, names_to="type", values_to = "cases")
+
+#plot
+ggplot(ecuador_corona_gap, aes(x=date, y=cases, colour=type)) + geom_line()
+  
+```
 
 
+```{r}
 #install tidycovid19 package
 #devtools::install_github("joachim-gassen/tidycovid19")
 
