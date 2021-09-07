@@ -12,7 +12,12 @@ output:
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+#libraries
 library(tidyverse)
+#devtools::install_github("RamiKrispin/coronavirus")
+library(coronavirus)
+#devtools::install_github("joachim-gassen/tidycovid19")
+library(tidycovid19)
 ```
 
 # Introdction
@@ -41,10 +46,7 @@ Data Issues
 - there are a lot of negative cases in all the categories for some reason, making a cumulative variable to see if that changes
 
 ```{r, John Hopkins}
-#install coronavirus package dataset
-#devtools::install_github("RamiKrispin/coronavirus")
-library(coronavirus)
-help(package="coronavirus")
+#coronavirus package data
 
 #make long dataset for plotting
 ecuador_corona_new <- coronavirus %>%
@@ -83,12 +85,10 @@ ggplot(ecuador_corona_gap, aes(x=date, y=cases, colour=type)) + geom_line()
 
 
 ```{r}
-#install tidycovid19 package
-#devtools::install_github("joachim-gassen/tidycovid19")
-
-library(tidycovid19)
+#tidycovid19 package data
 
 #testing, vaccine, etc reports
+
 #data
 owid_data <- download_owid_data(silent = FALSE, cached = TRUE)%>%
   filter(iso3c=="ECU") %>%
@@ -100,27 +100,41 @@ ggplot(owid_data, aes(x=date, y=value, colour=measure))+
   geom_line()
 
 #google trends
+
 #data
 gtrend_data <- download_google_trends_data(cached=TRUE)%>%
   filter(iso3c=="ECU")
+
 #plot
 ggplot(gtrend_data, aes(x=date, y=gtrends_score)) +
   geom_line()
 
 
 #lockdown and restriction details
+
 #data 1
 ACAPS_data <- download_acaps_npi_data(cached=TRUE) %>%
   filter(iso3c=="ECU")
-#data 2
+
+# data 2
 oxford_data <- download_oxford_npi_data(cached=TRUE) %>%
   filter(iso3c=="ECU")
 
-#more covid case reports
-#download_ecdc_covid19_data(
+# more covid case reports
+# data
+ECDC_cases <- download_ecdc_covid19_data(cached=TRUE) %>%
+  filter(iso3c=="ECU")%>%
+  select(c(date,cases,deaths)) %>%
+  pivot_longer(cols=c(cases,deaths), names_to = "type", values_to = "number")
 
-#google mobility reports
-#download_google_cmr_data
+# plot these
+ggplot(ECDC_cases, aes(x=date, y=number, colour=type))+
+  geom_line()
+
+
+# google mobility reports
+gmobility <- download_google_cmr_data(cached=TRUE)%>%
+  filter(iso3c=="ECU")
 
 ```
 
