@@ -86,38 +86,38 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-<title>Covidblog: Welcome to Covidblog</title>
+<title>Talking to Myself with Data: Using Ecuador to Show My Mum the Effectiveness Of Vaccines</title>
 
-<meta property="description" itemprop="description" content="Welcome to our new blog, Covidblog. We hope you enjoy &#10;reading what we have to say!"/>
+<meta property="description" itemprop="description" content="Watch me comb through data full of missing and nonsensical values to try and show my mother that lockdowns and vaccines are not pointless. Probably."/>
 
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2021-08-29"/>
-<meta property="article:created" itemprop="dateCreated" content="2021-08-29"/>
-<meta name="article:author" content="Nora Jones"/>
+<meta property="article:published" itemprop="datePublished" content="2021-09-04"/>
+<meta property="article:created" itemprop="dateCreated" content="2021-09-04"/>
+<meta name="article:author" content="Harriet Mason"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Covidblog: Welcome to Covidblog"/>
+<meta property="og:title" content="Talking to Myself with Data: Using Ecuador to Show My Mum the Effectiveness Of Vaccines"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Welcome to our new blog, Covidblog. We hope you enjoy &#10;reading what we have to say!"/>
+<meta property="og:description" content="Watch me comb through data full of missing and nonsensical values to try and show my mother that lockdowns and vaccines are not pointless. Probably."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:site_name" content="Covidblog"/>
+<meta property="og:site_name" content="Talking to Myself with Data"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="Covidblog: Welcome to Covidblog"/>
-<meta property="twitter:description" content="Welcome to our new blog, Covidblog. We hope you enjoy &#10;reading what we have to say!"/>
+<meta property="twitter:title" content="Talking to Myself with Data: Using Ecuador to Show My Mum the Effectiveness Of Vaccines"/>
+<meta property="twitter:description" content="Watch me comb through data full of missing and nonsensical values to try and show my mother that lockdowns and vaccines are not pointless. Probably."/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Welcome to Covidblog"]},{"type":"character","attributes":{},"value":["Welcome to our new blog, Covidblog. We hope you enjoy \nreading what we have to say!"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Nora Jones"]},{"type":"character","attributes":{},"value":["https://example.com/norajones"]},{"type":"character","attributes":{},"value":["Spacely Sprockets"]},{"type":"character","attributes":{},"value":["https://example.com/spacelysprokets"]}]}]},{"type":"character","attributes":{},"value":["08-29-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","theme","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Using Ecuador to Show My Mum the Effectiveness Of Vaccines"]},{"type":"character","attributes":{},"value":["theme.css"]},{"type":"character","attributes":{},"value":["Watch me comb through data full of missing and nonsensical values to try and show my mother that lockdowns and vaccines are not pointless. Probably."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Harriet Mason"]}]}]},{"type":"character","attributes":{},"value":["09-04-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"NULL"}
+  {"type":"character","attributes":{},"value":["blog-post-1_files/anchor-4.2.2/anchor.min.js","blog-post-1_files/bowser-1.9.3/bowser.min.js","blog-post-1_files/distill-2.2.21/template.v2.js","blog-post-1_files/figure-html5/global average-1.png","blog-post-1_files/figure-html5/table1-1.png","blog-post-1_files/header-attrs-2.10.5/header-attrs.js","blog-post-1_files/jquery-3.6.0/jquery-3.6.0.js","blog-post-1_files/jquery-3.6.0/jquery-3.6.0.min.js","blog-post-1_files/jquery-3.6.0/jquery-3.6.0.min.map","blog-post-1_files/popper-2.6.0/popper.min.js","blog-post-1_files/tippy-6.2.7/tippy-bundle.umd.min.js","blog-post-1_files/tippy-6.2.7/tippy-light-border.css","blog-post-1_files/tippy-6.2.7/tippy.css","blog-post-1_files/tippy-6.2.7/tippy.umd.min.js","blog-post-1_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2040,6 +2040,356 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
+<style type="text/css">
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+
+
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      50px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     #000000;
+  --header-color:    rgba(0, 0, 0, 0.8);
+  --body-color:      rgba(0, 0, 0, 0.8);
+  --aside-color:     rgba(0, 0, 0, 0.6);
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    sans-serif;
+  --mono-font:       monospace;
+  --body-font:       sans-serif;
+  --navbar-font:     sans-serif;  /* websites + blogs only */
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    0.6rem;
+  --heading-color:   rgba(0, 0, 0, 0.5);
+  --body-size:       0.8rem;
+  --body-color:      rgba(0, 0, 0, 0.8);
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;
+  --contents-size:   13px;
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;
+  --heading-color:   rgba(0, 0, 0, 0.65);
+  --text-size:       0.8em;
+  --text-color:      rgba(0, 0, 0, 0.5);
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+
+.distill-site-header {
+  --title-size:       18px;
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #0F2E3D;
+}
+
+.distill-site-footer {
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #0F2E3D;
+}
+
+/*-- Additional custom styles --*/
+/* Add any additional CSS rules below                      */
+</style>
+<style type="text/css">
+/* base variables */
+
+/* Edit the CSS properties in this file to create a custom
+   Distill theme. Only edit values in the right column
+   for each row; values shown are the CSS defaults.
+   To return any property to the default,
+   you may set its value to: unset
+   All rows must end with a semi-colon.                      */
+
+/* Optional: embed custom fonts here with `@import`          */
+/* This must remain at the top of this file.                 */
+
+@font-face {
+  font-family: 'harriethandwriting';
+  src: url(../harriethandwriting.ttf);
+}
+
+
+html {
+  /*-- Main font sizes --*/
+  --title-size:      50px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
+  /*-- Main font colors --*/
+  --title-color:     #ff00ff;
+  --header-color:    #ff00ff;
+  --body-color:      rgba(0, 0, 0, 0.8);
+  --aside-color:     rgba(0, 0, 0, 0.6);
+  --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Specify custom fonts ~~~ must be imported above   --*/
+  --heading-font:    "harriethandwriting";
+  --mono-font:       "harriethandwriting";
+  --body-font:       "harriethandwriting";
+  --navbar-font:     "harriethandwriting";
+}
+
+/*-- ARTICLE METADATA --*/
+d-byline {
+  --heading-size:    0.6rem;
+  --heading-color:   rgba(0, 0, 0, 0.5);
+  --body-size:       0.8rem;
+  --body-color:      rgba(0, 0, 0, 0.8);
+}
+
+/*-- ARTICLE TABLE OF CONTENTS --*/
+.d-contents {
+  --heading-size:    18px;
+  --contents-size:   13px;
+}
+
+/*-- ARTICLE APPENDIX --*/
+d-appendix {
+  --heading-size:    15px;
+  --heading-color:   rgba(0, 0, 0, 0.65);
+  --text-size:       0.8em;
+  --text-color:      rgba(0, 0, 0, 0.5);
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+/* These properties only apply to Distill sites and blogs  */
+
+.distill-site-header {
+  --title-size:       18px;
+  --text-color:       #000;                   
+  --text-size:        15px;
+  --hover-color:      #ff00ff;                  
+  --bkgd-color:       #ffd8db;                    
+}
+
+.distill-site-footer {
+  --text-color:       rgba(255, 255, 255, 0.8);
+  --text-size:        15px;
+  --hover-color:      white;
+  --bkgd-color:       #0F2E3D;
+}
+
+
+/*-- Additional custom styles --*/
+/* Add any additional CSS rules below                      */
+
+
+ul > li::marker {
+  color: #ca225e;
+}
+
+.distill-site-header { 
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 2px;
+  font-weight: 300;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.distill-site-header .logo img{
+  max-height: 40px; /* Makes logo bigger, default was 20px */
+}
+
+.distill-site-header {
+  padding-top: 1rem;
+}
+
+d-title h1,
+d-article h2,
+.posts-list .description h2,
+.posts-list > h1 {
+    font-weight: 300;
+}
+
+d-appendix {
+  background-color: #fdf7f9;
+  border-top: none;
+}</style>
+<style type="text/css">
+/* base style */
+
+/* FONT FAMILIES */
+
+:root {
+  --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+body,
+.posts-list .post-preview p,
+.posts-list .description p {
+  font-family: var(--body-font), var(--body-default);
+}
+
+h1, h2, h3, h4, h5, h6,
+.posts-list .post-preview h2,
+.posts-list .description h2 {
+  font-family: var(--heading-font), var(--heading-default);
+}
+
+d-article div.sourceCode code,
+d-article pre code {
+  font-family: var(--mono-font), var(--mono-default);
+}
+
+
+/*-- TITLE --*/
+d-title h1,
+.posts-list > h1 {
+  color: var(--title-color, black);
+}
+
+d-title h1 {
+  font-size: var(--title-size, 50px);
+}
+
+/*-- HEADERS --*/
+d-article h1,
+d-article h2,
+d-article h3,
+d-article h4,
+d-article h5,
+d-article h6 {
+  color: var(--header-color, rgba(0, 0, 0, 0.8));
+}
+
+/*-- BODY --*/
+d-article > p,  /* only text inside of <p> tags */
+d-article > ul, /* lists */
+d-article > ol {
+  color: var(--body-color, rgba(0, 0, 0, 0.8));
+  font-size: var(--body-size, 1.06rem);
+}
+
+
+/*-- CODE --*/
+d-article div.sourceCode code,
+d-article pre code {
+  font-size: var(--code-size, 14px);
+}
+
+/*-- ASIDE --*/
+d-article aside {
+  font-size: var(--aside-size, 12px);
+  color: var(--aside-color, rgba(0, 0, 0, 0.6));
+}
+
+/*-- FIGURE CAPTIONS --*/
+figure .caption,
+figure figcaption,
+.figure .caption {
+  font-size: var(--fig-cap-size, 13px);
+  color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
+}
+
+/*-- METADATA --*/
+d-byline h3 {
+  font-size: var(--heading-size, 0.6rem);
+  color: var(--heading-color, rgba(0, 0, 0, 0.5));
+}
+
+d-byline {
+  font-size: var(--body-size, 0.8rem);
+  color: var(--body-color, rgba(0, 0, 0, 0.8));
+}
+
+d-byline a,
+d-article d-byline a {
+  color: var(--body-color, rgba(0, 0, 0, 0.8));
+}
+
+/*-- TABLE OF CONTENTS --*/
+.d-contents nav h3 {
+  font-size: var(--heading-size, 18px);
+}
+
+.d-contents nav a {
+  font-size: var(--contents-size, 13px);
+}
+
+/*-- APPENDIX --*/
+d-appendix h3 {
+  font-size: var(--heading-size, 15px);
+  color: var(--heading-color, rgba(0, 0, 0, 0.65));
+}
+
+d-appendix {
+  font-size: var(--text-size, 0.8em);
+  color: var(--text-color, rgba(0, 0, 0, 0.5));
+}
+
+d-appendix d-footnote-list a.footnote-backlink {
+  color: var(--text-color, rgba(0, 0, 0, 0.5));
+}
+
+/*-- WEBSITE HEADER + FOOTER --*/
+.distill-site-header .title {
+  font-size: var(--title-size, 18px);
+  font-family: var(--navbar-font), var(--heading-default);
+}
+
+.distill-site-header a,
+.nav-dropdown .nav-dropbtn {
+  font-family: var(--navbar-font), var(--heading-default);
+}
+
+.nav-dropdown .nav-dropbtn {
+  color: var(--text-color, rgba(255, 255, 255, 0.8));
+  font-size: var(--text-size, 15px);
+}
+
+.distill-site-header a:hover,
+.nav-dropdown:hover .nav-dropbtn {
+  color: var(--hover-color, white);
+}
+
+.distill-site-header {
+  font-size: var(--text-size, 15px);
+  color: var(--text-color, rgba(255, 255, 255, 0.8));
+  background-color: var(--bkgd-color, #0F2E3D);
+}
+
+.distill-site-footer {
+  font-size: var(--text-size, 15px);
+  color: var(--text-color, rgba(255, 255, 255, 0.8));
+  background-color: var(--bkgd-color, #0F2E3D);
+}
+
+.distill-site-footer a:hover {
+  color: var(--hover-color, white);
+}</style>
 <!--/radix_placeholder_distill-->
   <script src="../../site_libs/header-attrs-2.10.5/header-attrs.js"></script>
   <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -2062,7 +2412,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Welcome to Covidblog","description":"Welcome to our new blog, Covidblog. We hope you enjoy \nreading what we have to say!","authors":[{"author":"Nora Jones","authorURL":"https://example.com/norajones","affiliation":"Spacely Sprockets","affiliationURL":"https://example.com/spacelysprokets","orcidID":""}],"publishedDate":"2021-08-29T00:00:00.000+10:00","citationText":"Jones, 2021"}
+{"title":"Using Ecuador to Show My Mum the Effectiveness Of Vaccines","description":"Watch me comb through data full of missing and nonsensical values to try and show my mother that lockdowns and vaccines are not pointless. Probably.","authors":[{"author":"Harriet Mason","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-09-04T00:00:00.000+10:00","citationText":"Mason, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2070,7 +2420,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <header class="header header--fixed" role="banner">
 <nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
-<a href="../../index.html" class="title">Covidblog</a>
+<a href="../../index.html" class="title">Talking to Myself with Data</a>
 <input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
 </div>
 <div class="nav-right">
@@ -2085,19 +2435,42 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Welcome to Covidblog</h1>
+<h1>Using Ecuador to Show My Mum the Effectiveness Of Vaccines</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Welcome to our new blog, Covidblog. We hope you enjoy reading what we have to say!</p></p>
+<p><p>Watch me comb through data full of missing and nonsensical values to try and show my mother that lockdowns and vaccines are not pointless. Probably.</p></p>
 </div>
 
 <div class="d-byline">
-  Nora Jones <a href="https://example.com/norajones" class="uri">https://example.com/norajones</a> (Spacely Sprockets)<a href="https://example.com/spacelysprokets" class="uri">https://example.com/spacelysprokets</a>
+  Harriet Mason  
   
-<br/>08-29-2021
+<br/>09-04-2021
 </div>
 
 <div class="d-article">
+<h1 id="introdction">Introdction</h1>
+<p>I know I’ve reached a low point in my life when I’m listening to a Lowfi playlist that exclusively samples Bojack Horseman quotes. If that doesnt say I’m dead inside but I have work to do I’m not sure what does. My mum has been really anti-vax with all the covid stuff, she says she doesn’t trust the vaccines. I have had to watch 30 minutes of anti-vax videos/articles yesterday and debunk all of them. One of them was a 10 minute rant by some random guy in a Barbados town hall meeting who was talking about how Covid-19 was a man-made bio-weapon by the Chinese government. Ecuador does not have very strong data, but even crunching their numbers (even with all the NA’s) can disprove a lot of the claims in these anti-vax articles/videos but I think the easiest to look at with data is the effectiveness of vaccines. Ultimately a lot of the skepticism rhetoric centres around the view that the lockdowns are exessive and the vaccines are ineffective. The</p>
+<h1 id="data-description">Data Description</h1>
+<h2 id="table-1-lockdown-effectiveness">Table 1: Lockdown Effectiveness</h2>
+<p>To assess the effectiveness of the lock downs we need a few factors. Some measure of the strictness of the lockdown, a measure of whether or not these restrictions were followed, and a measure of the</p>
+<ul>
+<li><p>Google Mobility Data The baseline day is the median value from the 5‑week period Jan 3 – Feb 6, 2020. The same number of visitors on 2 different days of the week, result in different percentage changes Don’t infer that larger changes mean more visitors or smaller changes mean less visitors Avoid comparing day-to-day changes. Especially weekends with weekdays To help you track week-to-week changes, the baseline days never change. These baseline days also don’t account for seasonality. For example, visitors to parks typically increase as the weather improves.</p></li>
+<li><p>There is residential changes, but since this data is percentage change, and people already spent most of their time in their residence, the data is not comparable to the other categories.</p></li>
+</ul>
+<h2 id="john-hopkins-data">John Hopkins Data</h2>
+<p>Variables - date - province: province/state (it is NA for every observaiton in this dataset) - country: country of intrest, all Ecuador - lat: latitude of centre of geographic region (all the same) - long: latitude of centre of geographic region (all the same) - type: type of cases out of confirmed, death, and recovered. - Cases: number of those types of cases</p>
+<p>Data Issues - about -448000 cases in august of this year (recovered) - there are a lot of negative cases in all the categories for some reason, making a cumulative variable to see if that changes</p>
+<h1 id="effectiveness-of-lockdowns">Effectiveness of Lockdowns</h1>
+Since the point of lockdowns is to reduce the number of cases, we are going to see how the lockdown intervention measures reduced the mobility and in turn, the number of cases in Ecuador.
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="blog-post-1_files/figure-html5/table1-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="blog-post-1_files/figure-html5/global%20average-1.png" width="624" /></p>
+</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

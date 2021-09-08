@@ -1,19 +1,19 @@
 [
   {
-    "path": "posts/welcome/",
-    "title": "Welcome to Covidblog",
-    "description": "Welcome to our new blog, Covidblog. We hope you enjoy \nreading what we have to say!",
+    "path": "posts/2021-09-04-blog-post-1/",
+    "title": "Using Ecuador to Show My Mum the Effectiveness Of Vaccines",
+    "description": "Watch me comb through data full of missing and nonsensical values to try and show my mother that lockdowns and vaccines are not pointless. Probably.",
     "author": [
       {
-        "name": "Nora Jones",
-        "url": "https://example.com/norajones"
+        "name": "Harriet Mason",
+        "url": {}
       }
     ],
-    "date": "2021-08-29",
+    "date": "2021-09-04",
     "categories": [],
-    "contents": "\r\n\r\n\r\n\r\n",
-    "preview": {},
-    "last_modified": "2021-08-29T18:48:50+10:00",
+    "contents": "\r\nIntrodction\r\nI know I’ve reached a low point in my life when I’m listening to a Lowfi playlist that exclusively samples Bojack Horseman quotes. If that doesnt say I’m dead inside but I have work to do I’m not sure what does. My mum has been really anti-vax with all the covid stuff, she says she doesn’t trust the vaccines. I have had to watch 30 minutes of anti-vax videos/articles yesterday and debunk all of them. One of them was a 10 minute rant by some random guy in a Barbados town hall meeting who was talking about how Covid-19 was a man-made bio-weapon by the Chinese government. Ecuador does not have very strong data, but even crunching their numbers (even with all the NA’s) can disprove a lot of the claims in these anti-vax articles/videos but I think the easiest to look at with data is the effectiveness of vaccines. Ultimately a lot of the skepticism rhetoric centres around the view that the lockdowns are exessive and the vaccines are ineffective. The\r\nData Description\r\nTable 1: Lockdown Effectiveness\r\nTo assess the effectiveness of the lock downs we need a few factors. Some measure of the strictness of the lockdown, a measure of whether or not these restrictions were followed, and a measure of the\r\nGoogle Mobility Data The baseline day is the median value from the 5‑week period Jan 3 – Feb 6, 2020. The same number of visitors on 2 different days of the week, result in different percentage changes Don’t infer that larger changes mean more visitors or smaller changes mean less visitors Avoid comparing day-to-day changes. Especially weekends with weekdays To help you track week-to-week changes, the baseline days never change. These baseline days also don’t account for seasonality. For example, visitors to parks typically increase as the weather improves.\r\nThere is residential changes, but since this data is percentage change, and people already spent most of their time in their residence, the data is not comparable to the other categories.\r\nJohn Hopkins Data\r\nVariables - date - province: province/state (it is NA for every observaiton in this dataset) - country: country of intrest, all Ecuador - lat: latitude of centre of geographic region (all the same) - long: latitude of centre of geographic region (all the same) - type: type of cases out of confirmed, death, and recovered. - Cases: number of those types of cases\r\nData Issues - about -448000 cases in august of this year (recovered) - there are a lot of negative cases in all the categories for some reason, making a cumulative variable to see if that changes\r\nEffectiveness of Lockdowns\r\nSince the point of lockdowns is to reduce the number of cases, we are going to see how the lockdown intervention measures reduced the mobility and in turn, the number of cases in Ecuador.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "preview": "posts/2021-09-04-blog-post-1/blog-post-1_files/figure-html5/table1-1.png",
+    "last_modified": "2021-09-08T20:03:35+10:00",
     "input_file": {}
   }
 ]
