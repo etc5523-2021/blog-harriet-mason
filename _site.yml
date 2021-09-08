@@ -1,7 +1,8 @@
 name: "docs"
-title: "Covidblog"
+title: "Talking to Myself with Data"
+theme: theme.css
 description: |
-  Covidblog
+  An array of posts about
 output_dir: "docs"
 navbar:
   right:
