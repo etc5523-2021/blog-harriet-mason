@@ -1,7 +1,7 @@
 [
   {
     "path": "posts/2021-09-15-blog-post-2/",
-    "title": "blog-post-2",
+    "title": "A Look At Vaccine Effectiveness With Serbia",
     "description": "A short description of the post.",
     "author": [
       {
@@ -11,10 +11,10 @@
     ],
     "date": "2021-09-15",
     "categories": [],
-    "contents": "\r\nIntroduction\r\nData Story 1\r\n\r\n\r\n\r\nData Story 2\r\n\r\n\r\n\r\n",
+    "contents": "\r\nIntroduction\r\nSerbia did such a good vaccine roll out, they honestly made the Australian government look more like steaming garbage than they managed to do themselves. They gave everyone vaccines and then had extra for people crossing the border, because why not?\r\nData Story 1\r\n\r\n\r\n\r\nData Story 2\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-09-15T19:03:43+10:00",
-    "input_file": {}
+    "last_modified": "2021-09-15T19:38:56+10:00",
+    "input_file": "blog-post-2.knit.md"
   },
   {
     "path": "posts/2021-09-04-blog-post-1/",

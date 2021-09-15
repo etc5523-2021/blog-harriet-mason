@@ -1,5 +1,5 @@
 ---
-title: "blog-post-2"
+title: "A Look At Vaccine Effectiveness With Serbia"
 description: |
   A short description of the post.
 author:
@@ -17,9 +17,25 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 # Introduction
+Serbia did such a good vaccine roll out, they honestly made the Australian government look more like steaming garbage than they managed to do themselves. They gave everyone vaccines and then had extra for people crossing the border, because why not?
+
 
 # Data Story 1
-```{r, Load Data}
+```{r, Load Data, eval=FALSE}
+library(tidycovid19)
+
+# main covid data
+all_covid <- download_merged_data(cached=TRUE)
+
+all_serbia <- all_covid %>%
+  dplyr::filter(country == "Serbia")
+
+#search data
+search_pfizer <- download_google_trends_data(search_term = "Pfizer", countries="SRB")
+search_az <- download_google_trends_data(search_term = "AstraZeneca", countries="SRB")
+search_sputnik <- download_google_trends_data(search_term = "Sputnik", countries="SRB")
+search_sinopharm <- download_google_trends_data(search_term = "Sinopharm", countries="SRB")
+
 
 ```
 
