@@ -1,0 +1,28 @@
+---
+title: "blog-post-2"
+description: |
+  A short description of the post.
+author:
+  - name: Harriet Mason
+    url: {}
+date: 09-15-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Introduction
+
+# Data Story 1
+```{r, Load Data}
+
+```
+
+# Data Story 2
+
+

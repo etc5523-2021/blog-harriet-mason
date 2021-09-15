@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2021-09-15-blog-post-2/",
+    "title": "blog-post-2",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Harriet Mason",
+        "url": {}
+      }
+    ],
+    "date": "2021-09-15",
+    "categories": [],
+    "contents": "\r\nIntroduction\r\nData Story 1\r\n\r\n\r\n\r\nData Story 2\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-09-15T19:03:43+10:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2021-09-04-blog-post-1/",
     "title": "Using Ecuador to Show My Mum the Effectiveness Of Vaccines",
     "description": "Watch me comb through data full of missing and nonsensical values to try and show my mother that lockdowns and vaccines are not pointless. Probably.",
