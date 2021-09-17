@@ -1,7 +1,7 @@
 ---
-title: "A Look At Vaccine Effectiveness With Serbia"
+title: "Serbia, A Middle Income Vaccine King"
 description: |
-  A short description of the post.
+  Looking at how Serbia has destroyed the vaccine roll out game.
 author:
   - name: Harriet Mason
     url: {}
@@ -9,36 +9,156 @@ date: 09-15-2021
 output:
   distill::distill_article:
     self_contained: false
+editor_options: 
+  chunk_output_type: console
 ---
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE,
+                      fig.dim = c(8, 8))
+library(tidyverse)
+library(tidycovid19)
+library(RColorBrewer)
+library(glue)
+library(plotly)
 ```
 
-# Introduction
-Serbia did such a good vaccine roll out, they honestly made the Australian government look more like steaming garbage than they managed to do themselves. They gave everyone vaccines and then had extra for people crossing the border, because why not?
+# I Heard Serbia is Doing Well With the Whole Vaccine Thing...
+Serbia did such a good vaccine roll out, they made the Australian government look more like steaming garbage. They gave everyone vaccines and then had extra for people crossing the border, so long as they had a booking and were willing to take the vaccines nobody else wanted (Stanisljevic). One of the reasons Serbia has been considered to have a good vaccine roll out is because it was a middle income country that has already managed to have a pretty large percentage of its population fully vaccinated. This makes me interested in two factors that I will investigate here: 
+
+1) Which Vaccines are the Most Popular In Serbia?  
+
+2) How much does an income factor into how vaccinated a country is, and is Serbia really ahead for middle income countries?  
 
 
-# Data Story 1
-```{r, Load Data, eval=FALSE}
-library(tidycovid19)
+# Most Popular Vaccines
+Serbia has a vaccine catalogue of AstraZeneca, Pfizer, Sinopharm, and Sputnik. Data on the number of people getting vaccinated by each brand is rather hard to find, and by rather hard to find I mean I couldn't find it. Since the data is not directly available, I wonder if the answer to this question will appear in other places, i.e. the Google Trend data. Therefore, the relationship between vaccine searches and vaccines administered is what I'm going to investigate here. Unfortunately the google trend data does not lend itself well to comparison. Either for interpretability reasons or because Google has some twisted fantasy where their data is impossible to use, Google Trend data is on a scale from 0 to 100 on how popular that search term is *relative to itself*.  Ultimately this means that the only way we can see if a vaccine was popular is to check if spikes in the search term line up with spikes in vaccination, which I'll try to look for with the plot below.
 
+```{r}
+#search data
+search_pfizer <- download_google_trends_data(search_term = "Pfizer", countries="SRB")%>%
+  select(c(date, gtrends_score))
+search_az <- download_google_trends_data(search_term = "AstraZeneca", countries="SRB") %>%
+  select(c(date, gtrends_score))
+search_sputnik <- download_google_trends_data(search_term = "Sputnik", countries="SRB")%>%
+  select(c(date, gtrends_score))
+search_sinopharm <- download_google_trends_data(search_term = "Sinopharm", countries="SRB")%>%
+  select(c(date, gtrends_score))
+
+
+#vaccine data
+vax_data <- download_owid_data(silent = FALSE, cached = TRUE)%>%
+  filter(iso3c=="SRB")
+vax_data$total_vaccinations[1] = 0
+vax_data <- vax_data %>%
+  fill(total_vaccinations) %>%
+  mutate(new_vaccinations = total_vaccinations-lag(total_vaccinations)) %>%
+  select(c(date,new_vaccinations))
+
+lockdown_table <- search_pfizer %>%
+  left_join(search_az, by="date") %>%
+  left_join(search_sputnik, by="date") %>%
+  left_join(search_sinopharm, by="date") %>%
+  left_join(vax_data, by="date")
+names(lockdown_table) <- c("date", "Pfizer", "AstraZeneca", "Sputnik", "Sinopharm", "New Vaccines") 
+
+search_data <- lockdown_table %>%
+  pivot_longer(cols= 2:6, names_to = "Type", values_to = "Value") %>%
+  mutate(Type = factor(Type, levels=c("Pfizer", "AstraZeneca", "Sputnik", "Sinopharm", "New Vaccines")))
+
+#colours
+mypalette<-brewer.pal(7,"RdPu")[3:7]
+
+#plot
+ggplot(search_data, aes(x=date, y=Value, colour=Type))+
+  geom_line()+
+  facet_wrap(facets=Type~., scales = "free", ncol=1) +
+  theme_minimal() +
+  theme(legend.position = "None") +
+  scale_color_manual(values=mypalette)
+
+```
+
+Since the trends are relative to themselves, vaccine searches with a high amount of noise are likely to be lower in "total searches". Therefore the search volume order likely goes AstraZeneca, Pfizer, Sinopharm, and then Sputnik. Interestingly it looks like despite Sputnik maintaining continuous small amounts of interest, it did not influence many vaccinations. An initial spike in Pfizer and Sinopharm searches aligns with the first spike in vaccine doses, and a second spike with AstraZeneca and Pfizer had another spike in vaccine numbers a little later. Ultimately the noisy vaccine data also indicates there is likely lagging in reporting which could also be causing the peaks in vaccinations, so these conclusions could have some weight in them, but are also just as likely to be spurious. Does a lack of results mean this was a waste of our time? No, because negative results are just as important as positive ones (no positive results bias to be found in this blog). It doesn't matter what vaccine people get anyway, as long as they get one at all. With that in mind, lets see how Serbia compares to the rest of the world in their current vaccination rate.
+
+# Global Politics and Vaccine Roll outs
+Serbia's is considered to be a success story of a middle income country getting a diverse vaccine portfolio, and translating that into an effective roll out. To see how it compares to the rest of the world, we are going to look at an interactive bubble plot that compares each countries number of vaccinations per 100 people to the total number of Covid-19 cases per 100 people. Since most vaccines need two does, we would consider a fully vaccinated population o have 200 doses per 100 people. The size aesthetic will be cases per 100 people to see if the number of cases is more strongly related to the vaccine roll out than GDP.
+
+```{r, Plot 2}
 # main covid data
 all_covid <- download_merged_data(cached=TRUE)
 
-all_serbia <- all_covid %>%
-  dplyr::filter(country == "Serbia")
+#plot %vaccinated against income
+vax_vs_income <- all_covid %>%
+  filter(!is.na(total_vaccinations)) %>%
+  group_by(country) %>%
+  summarise(vax_doses_per_100 = 100*round(max(total_vaccinations/(population)),digits=3),
+            gdp_capita = max(gdp_capita),
+            region = first(region),
+            pop = first(population),
+            cases_per_100 = 100*round(max(confirmed)/first(population),digits=3)) %>%
+  mutate(serbia = factor(ifelse(country=="Serbia", "Serbia", "Not Serbia")))%>%
+  mutate(tooltip = glue(
+    "{country}
+    GDP Per Capita: {scales::dollar(gdp_capita)}
+    Vaccine Doses per 100 People: {vax_doses_per_100}
+    Covid-19 Cases per 100 People: {cases_per_100}"
+  ))
+  
+#plot 2
+p <- ggplot(vax_vs_income, aes(x=vax_doses_per_100, y=log(gdp_capita), 
+                               colour=serbia, size=cases_per_100, alpha=0.7))+
+  geom_point(aes(text=tooltip)) +
+  scale_colour_manual(values = c("pink", "grey"), breaks = c("Serbia", "Not Serbia")) +
+  theme_minimal()+
+  labs(x = "# Vaccine Doses per 100 People", 
+       y = "Log Scale GDP per Capita") +
+  ggtitle("Country Vaccine Doses vs Income") +
+  theme(legend.position = "None")
 
-#search data
-search_pfizer <- download_google_trends_data(search_term = "Pfizer", countries="SRB")
-search_az <- download_google_trends_data(search_term = "AstraZeneca", countries="SRB")
-search_sputnik <- download_google_trends_data(search_term = "Sputnik", countries="SRB")
-search_sinopharm <- download_google_trends_data(search_term = "Sinopharm", countries="SRB")
+pltly1 <- ggplotly(p, tooltip = "text") %>% 
+  config(displayModeBar = FALSE)
 
-
+hide_legend(pltly1)
 ```
 
-# Data Story 2
+Unfortunately this plot shows that % of the Population Vaccinated is more strongly related to the GDP per capita than number of Covid-19 cases per capita. This means that despite need, the richer countries get first pick and can buy their herd immunity. Serbia is not doing too badly as far as the middle income countries go, and it is certainly ahead of the trend for its income level. It just goes to show that getting a diverse range of vaccines can be helpful in more quickly vaccinating the population, despite being less financially well off than other countries.
+
+# Concluding Remarks
+Google search results don't align with vaccine numbers and I don't know why I thought they would. Also Serbia is doing well with vaccines, so lets give the entire country a high-5.
+
+# References  
+
+  
+Erich Neuwirth (2014). RColorBrewer: ColorBrewer Palettes. R package version 1.1-2.
+  https://CRAN.R-project.org/package=RColorBrewer
+  
+Joachim Gassen (2021). tidycovid19: Download, Tidy and Visualize Covid-19 Related Data. R package version 0.0.0.9000.
+
+Jovana Stanisljevic (11 May 2021), Small countries and Covid-19 vaccination: the example of Serbia. The Conversation. Accessed 15 September 2021.
+  
+Jim Hester (2020). glue: Interpreted String Literals. R package version 1.4.2.
+  https://CRAN.R-project.org/package=glue
+
+C. Sievert. Interactive Web-Based Data Visualization with R, plotly, and shiny. Chapman and Hall/CRC Florida, 2020.
+
+Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686,
+  https://doi.org/10.21105/joss.01686
 
 
+
+```{r, include=FALSE, eval=FALSE}
+library(spelling)
+rmd <- "_posts/2021-09-15-blog-post-2/blog-post-2.rmd"
+ignore <- readLines("WORDLIST")
+check_spelling <- spell_check_files(
+  rmd,
+  ignore = ignore,
+  lang = "en_GB"
+)
+if (nrow(check_spelling) > 0) {
+  print(check_spelling)
+  stop("Check spelling in Rmd files!")
+}
+```
